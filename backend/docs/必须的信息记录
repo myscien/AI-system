@@ -1,0 +1,33 @@
+```http
+POST /api/dify/tasks/create-with-questions
+X-Dify-Token: 后端配置的密钥
+Content-Type: application/json
+```
+
+如果用 systemd 部署 编辑你的服务文件，例如：
+sudo nano /etc/systemd/system/fastapi.service
+在 [Service] 里加：
+Environment="DIFY_API_TOKEN=aisystem511"
+然后重载并重启：
+sudo systemctl daemon-reload
+sudo systemctl restart quiz-backend.service
+
+nginx -t
+systemctl restart nginx
+cp -r /root/frontend/dist/* /var/www/quiz/
+server {
+    listen 80;
+    server_name 你的域名或服务器IP;
+
+    location / {
+        root /var/www/quiz;
+        index index.html;
+        try_files $uri $uri/ /index.html;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:8000/api/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
