@@ -5,7 +5,7 @@ Content-Type: application/json
 ```
 
 如果用 systemd 部署 编辑你的服务文件，例如：
-sudo nano /etc/systemd/system/fastapi.service
+sudo nano /etc/systemd/system/quiz-backend.service
 在 [Service] 里加：
 Environment="DIFY_API_TOKEN=aisystem511"
 然后重载并重启：
@@ -14,7 +14,7 @@ sudo systemctl restart quiz-backend.service
 
 nginx -t
 systemctl restart nginx
-cp -r /root/frontend/dist/* /var/www/quiz/
+cp -r /root/ai-system/frontend/dist/* /var/www/quiz/
 server {
     listen 80;
     server_name 你的域名或服务器IP;

@@ -4,6 +4,24 @@
       <RouterLink class="app-title-link" :to="{ name: 'teacher-tasks' }">教师端｜课堂巩固练习</RouterLink>
     </h1>
 
+    <section class="portal-demo-card" aria-labelledby="teacher-portal-demo-title">
+      <div class="portal-demo-copy">
+        <p class="portal-demo-kicker">项目演示入口</p>
+        <h2 id="teacher-portal-demo-title">课堂巩固练习系统演示</h2>
+        <p>
+          以下入口仅用于功能展示和项目演示，不代表正式教学环境。演示数据可能会被重置，请勿填写真实个人信息或敏感数据。
+        </p>
+      </div>
+      <div class="portal-demo-actions">
+        <RouterLink class="primary-btn portal-demo-link" :to="{ name: 'home' }">
+          学生端演示
+        </RouterLink>
+        <RouterLink class="secondary-btn portal-demo-link" :to="{ name: 'teacher-tasks' }">
+          教师端演示
+        </RouterLink>
+      </div>
+    </section>
+
     <div class="card">
       <div class="teacher-page-header">
         <div>
